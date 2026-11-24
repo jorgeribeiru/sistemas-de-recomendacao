@@ -11,13 +11,14 @@ Cada pasta mantém seu próprio `README.md` com instruções detalhadas, parâme
 | [Atividade 1](atividade-1/README.md) | Recomendação colaborativa (baseada em usuários) | Similaridade de Pearson, vizinhos mais próximos (*k*-NN), previsão de notas e recomendação Top-N | `book`, `movies`, MovieLens 100K e CSV próprio | Biblioteca padrão | [Slides](atividade-1/Slide.pdf) · Cap. 2 |
 | [Atividade 2](atividade-2/README.md) | Recomendação baseada em conteúdo | Matriz termo-documento, pesos TF-IDF e similaridade de cosseno (Shakespeare); carga de corpus textual (BBC) | Shakespeare (matriz do slide) e notícias BBC | Biblioteca padrão | [Slides Cap. 3](atividade-2/Recommender_Systems_An_Introduction_Chapter03_Content-based_recommendation.pdf) · Cap. 3 |
 | [Atividade 3](atividade-3/README.md) | Recomendação baseada em conhecimento | Consultas conjuntivas, diagnóstico mínimo e reparo de requisitos, MAUT por perfil de cliente e similaridade baseada em casos (`LIB`, `MIB`, `TARGET`, `CAT`) | Catálogo de câmeras (`cameras.csv`) | `numpy`, `pandas` | [Slides Cap. 4](atividade-3/Recommender_Systems_An_Introduction_Chapter04_Knowledge-based_recommendation.pdf) · [Roteiro](atividade-3/APRESENTACAO.md) · Cap. 4 |
+| [Atividade 4](atividade-4/README.md) | Avaliação de sistemas de recomendação | Matriz de confusão, Acurácia, Taxa de Erro, Precision, Recall, F-Measure, MAE, MSE, RMSE, DCG, NDCG e Curva ROC / AUC | Exercícios dos slides, `predicoes_notas.csv` e `rankings_usuarios.csv` | Biblioteca padrão | [Slides](atividade-4/MetricasDeAvaliacao.pdf) · [Roteiro](atividade-4/APRESENTACAO.md) · Cap. 7 |
 
 > **Nota sobre a Atividade 2:** `atividade-2/main.py` faz a inspeção das bases (`shakespeare` e `bbc`), enquanto o cálculo de TF-IDF e a similaridade de cosseno para as peças de Shakespeare estão implementados em `atividade-2/content_based/`. A vetorização e o ranking sobre os textos completos da BBC permanecem como próximos passos.
 
 ## Requisitos e ambiente
 
 - **Python 3.10 ou superior** em todas as atividades.
-- **Atividades 1 e 2:** utilizam apenas a biblioteca padrão do Python.
+- **Atividades 1, 2 e 4:** utilizam apenas a biblioteca padrão do Python.
 - **Atividade 3:** utiliza `numpy` e `pandas`:
 
 ```bash
@@ -58,6 +59,19 @@ python atividade-2/content_based/similarity.py
 python atividade-3/main.py
 ```
 
+### Atividade 4 — Métricas de avaliação
+
+```bash
+python atividade-4/main.py
+```
+
+Para rodar os testes unitários da Atividade 4:
+
+```bash
+cd atividade-4
+python -m unittest discover -v
+```
+
 ## Bases externas opcionais
 
 Conjuntos de dados maiores ficam fora do versionamento (conforme [`.gitignore`](.gitignore)) e podem ser baixados sob demanda pelos scripts de cada atividade:
@@ -76,7 +90,8 @@ sistemas-de-recomendacao/
 ├── APRESENTACAO.md                # Roteiro de apresentação do código (Atividade 3)
 ├── atividade-1/                   # Recomendação colaborativa (CLI, pacotes, dados, scripts, testes)
 ├── atividade-2/                   # Recomendação baseada em conteúdo (dados, scripts, TF-IDF e cosseno)
-└── atividade-3/                   # Recomendação baseada em conhecimento (catálogo, consulta, MAUT, similaridade)
+├── atividade-3/                   # Recomendação baseada em conhecimento (catálogo, consulta, MAUT, similaridade)
+└── atividade-4/                   # Métricas de avaliação (classificação, erro, DCG/NDCG, curva ROC e testes)
 ```
 
 Ao adicionar uma nova atividade (`atividade-N/`), mantenha um `README.md` próprio dentro da pasta e atualize este arquivo incluindo uma linha na tabela de [Atividades](#atividades), eventuais novas dependências e o comando correspondente em **Execução rápida**.
